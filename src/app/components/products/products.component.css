@@ -1,0 +1,16 @@
+table {
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+tr:nth-child(even) {
+    background-color: aqua;
+}

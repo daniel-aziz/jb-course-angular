@@ -1,0 +1,43 @@
+section {  
+    height: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 0.3fr 1.7fr;
+    grid-template-rows: 0.4fr 2.4fr 0.2fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header"
+      "aside main"
+      "footer footer";
+  }
+  
+  header { grid-area: header; }
+  
+  main { 
+    grid-area: main; 
+    border-left: 1px solid gainsboro ;
+}
+  
+  aside { 
+      grid-area: aside; 
+}
+  
+  footer { 
+      grid-area: footer; 
+      border-top: 1px solid gainsboro;
+    }
+  
+
+
+
+
+
+main {
+    
+}
+
+footer {
+ 
+}
+

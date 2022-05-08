@@ -1,0 +1,35 @@
+<div class="binding">
+    <!-- Event Binding -->
+    <button (click)="increaseWidth()">Increase</button>
+    <button (click)="deacreseWidth()">Decrease</button>
+    <br>
+    <!-- Two Way Binding -->
+    <input #inputRef type="range" max="750" min="100" value={{imageWidth}} step="25" [(ngModel)]="imageWidth">
+
+    <!-- Interpulation -->
+
+    <h3>Only Now, at {{currentDate | date: 'MMMM dd'}} - {{currentDiscount}}% discount on all products!</h3>
+
+    <!-- Property Binding -->
+    <img #imageRef src="../../../assets/images/fruits.jpg" [width]="imageWidth">
+
+    <!-- ref (id binding) getting the dom elemnt -->
+    <p>Image Width: {{imageRef.width}}</p>
+    <p>Input Range Value {{inputRef.value}}</p>
+</div>
+<hr>
+<div class="directive">
+    <h3>Our Products:</h3>
+    <!-- Attribute Directive -->
+    <span ngClass="greenish">Apple</span>
+    <br>
+    <!-- Structual Directive -->
+    <span *ngIf="!isWinter">Avocados</span>
+    <br>
+    <!--  -->
+    <p>All Furits</p>
+    <ul>
+        <li *ngFor='let fruit of fruits'>{{fruit}}</li>
+    </ul>
+    
+</div>
