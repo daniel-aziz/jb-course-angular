@@ -1,14 +1,20 @@
-<div>
+<img *ngIf="products.length === 0" src="../../../assets/images/loading-gif.gif" alt="">
+
+<div  *ngIf="products.length > 0">
     <table>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Stock</th>
         </tr>
+        
         <tr *ngFor="let p of products">
-            <td>{{p.name}}</td>
+            <a routerLink="/product-details/{{p.id}}">
+            <td>{{p.name}}</td> </a>
             <td>{{p.price}}</td>
             <td>{{p.stock}}</td>
+            
         </tr>
+        
     </table>
 </div>

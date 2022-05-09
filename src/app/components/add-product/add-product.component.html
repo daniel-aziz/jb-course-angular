@@ -1,0 +1,24 @@
+<div>
+    <h3>Add Product:</h3>
+    <form #formInfo="ngForm">
+        <input #nameInfo="ngModel" pattern="[A-Z].*$" required type="text" placeholder="name" [(ngModel)]="product.name" name="name">
+        <br>
+        <span *ngIf="nameInfo.errors?.['required'] && nameInfo.touched">Missing name</span>
+        <span *ngIf="nameInfo.errors?.['pattern'] && nameInfo.touched">Must start with Capital letter</span>
+        <br>
+        <input #priceInfo="ngModel" required type="number" placeholder="price" [(ngModel)]="product.price" name="price">
+        <br>
+        <span *ngIf="priceInfo.invalid && priceInfo.touched">Missing Price</span>
+        <br>
+        <input #stockInfo="ngModel" required type="number" placeholder="stock" [(ngModel)]="product.stock" name="stock">
+        <br>
+        <span *ngIf="stockInfo.invalid && stockInfo.touched">Missing Stock</span>
+        <br>
+        <button [disabled]="formInfo.invalid" (click)="addProduct()" > Add </button>
+
+        <p>Name Valid? : {{nameInfo.valid}}</p>
+        <p>Price Valid? : {{priceInfo.valid}}</p>
+        <p>Stock Valid? : {{stockInfo.valid}}</p>
+        <p>Form Valid? : {{formInfo.valid}}</p>
+    </form>
+</div>

@@ -10,12 +10,49 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   public products: Product[] = [];
-  constructor(private title:Title, private productsService: ProductsService) { }
+  constructor(private title: Title, private productsService: ProductsService) { }
 
   ngOnInit(): void {
     this.title.setTitle('Our Products...')
-    this.products = this.productsService.getAllProducts()
-    console.table(this.products)
+
+    // sync
+    // this.products = this.productsService.getAllProducts()
+
+    // Async 1 - callbacks
+    // this.productsService.getAllProductsTimeOut((data:any)=>{
+    //   this.products = data
+    // },()=>{
+    //   console.log('error')
+    // })
+
+    // Async 2 - Promise
+    // this.productsService.getAllProductsPromise()
+    //   .then(products => {
+    //     this.products = products
+    //   }).catch((reject) => {
+    //     console.log(reject);
+    //   })
+
+    // Async 3 - Observable
+    // this.productsService.getAllProductsObservable()
+    //   .subscribe(products => {
+    //     this.products = products
+    //   }).closed
+
+
+    // Async Server
+    // this.productsService.getAllProductsServer((data:any)=>{
+    //   this.products = data
+    // },()=>{
+    //   console.log('error')
+    // })
+
+    // Async Server - Observable
+    this.productsService.getAllProductsSrvObservable()
+      .subscribe(products => {
+        this.products = products
+      }).closed
+
   }
 
 }
